@@ -32,4 +32,25 @@ func (r *vueloRepository) FindAll() ([]models.Vuelo, error) {
 	return vuelos, err
 }
 
+func (r *vueloRepository) FindByID(id uint) (*models.Vuelo, error) {
+	var vuelo models.Vuelo
+	err := r.db.Preload("Escalas").First(&vuelo, id).Error
+	return &vuelo, err
+}
+
+func (r *vueloRepository) FindByOrigenDestino(origen, destino string) ([]models.Vuelo, error) {
+	var vuelos []models.Vuelo
+
+	err := r.db.Preload("Escalas").Find(&vuelos, origen, destino).Error
+	return vuelos, err
+}
+
+func (r *vueloRepository) Update(vuelo *models.Vuelo) error {
+	return r.db.Save(vuelo).Error
+}
+
+func (r *vueloRepository) Delete(id uint) error {
+	return r.db.Where("id = ?", id).Delete(&models.Vuelo{}).Error
+}
+
 // Implementar los demás métodos...
