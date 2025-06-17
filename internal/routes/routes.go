@@ -1,6 +1,9 @@
 package routes
 
 import (
+	"github.com/di3go35/agencia-viajes/internal/controllers"
+	"github.com/di3go35/agencia-viajes/internal/repositories"
+	"github.com/di3go35/agencia-viajes/internal/services"
 	"github.com/labstack/echo/v4"
 	"gorm.io/gorm"
 )

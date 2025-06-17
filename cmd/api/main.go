@@ -3,8 +3,6 @@ package main
 import (
 	"github.com/di3go35/agencia-viajes/internal/config"
 	"github.com/di3go35/agencia-viajes/internal/routes"
-
-	//"github.com/di3go35/agencia-viajes/internal/routes"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"log"
